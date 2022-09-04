@@ -33,6 +33,8 @@ public class FirstClass {
 
         System.out.println(driver.getTitle());
 
+        driver.close();
+
 
 
 
