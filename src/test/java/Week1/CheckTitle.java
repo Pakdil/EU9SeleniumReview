@@ -29,10 +29,10 @@ public class CheckTitle {
         }
 
 
-        System.out.println("The current URL the page is: "+ driver.getCurrentUrl());
+        System.out.println("The current URL of the page is: "+ driver.getCurrentUrl());
 
 
-        driver.close();
+        //driver.close();
     }
 
 }

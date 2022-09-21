@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CssSelector {
+public class Xpath {
 
     public static void main(String[] args) {
 
@@ -14,15 +14,10 @@ public class CssSelector {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        driver.get("http://practice.cydeo.com/");
+        driver.get("https://www.ebay.com/");
 
-        // using css locator
-
-        WebElement title = driver.findElement(By.cssSelector("div[id=\"flash-messages\"]"));
-        System.out.println(title.getTagName());
-
-
-
-
+       WebElement element1 = driver.findElement(By.xpath("//div[@class=\"hl-image__background\"]"));
     }
+
+
 }

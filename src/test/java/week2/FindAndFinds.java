@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FindAndFinds {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -18,12 +18,23 @@ public class FindAndFinds {
         driver.get("http://practice.cydeo.com/");
 
         List<WebElement> links = driver.findElements(By.tagName("a"));
-        for (WebElement link : links) {
-            System.out.println(link.getText());
 
-        }
+//        for (WebElement link : links) {
+//            System.out.println(link.getText());
+//
+//        }
+//
+//        System.out.println(links.get(10).getText());
+//        links.get(3).click();
 
-        links.get(3).click();
+
+
+       driver.findElement(By.xpath("//a[text()=\"Multiple Buttons\"]")).click();
+       List<WebElement> btns = driver.findElements(By.className("btn btn-primary"));
+       for (WebElement btn : btns) {
+           btn.click();
+           Thread.sleep(1000);
+       }
 
     }
 }
