@@ -1,6 +1,7 @@
 package week6.pages.tests;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utilities.Driver;
@@ -22,11 +23,26 @@ public class LoginTest {
     }
 
     @Test
-    public void loginTest() {
+    public void happyTest(){
+        driver.get("https://practice.cydeo.com/login");
         String username = "tomsmith";
         String password = "SuperSecretPassword";
-        loginPage.loginMethod(username, password);
+        loginPage.loginMethod(username,password);
+        String expectedMsg= "You logged into a secure area!\n" +
+                "×";
+        Assert.assertEquals(loginPage.successMsg.getText(),expectedMsg);
+
     }
 
+    @Test
+    public void sadTest(){
+        driver.get("https://practice.cydeo.com/login");
+        String username = "wrong username";
+        String password = "wrong password";
+        loginPage.loginMethod(username,password);
+        String expectedMsg= "Your username is invalid!\n" +
+                "×";
+        Assert.assertEquals(loginPage.successMsg.getText(),expectedMsg);
+    }
 
 }
